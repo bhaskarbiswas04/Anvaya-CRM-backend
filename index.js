@@ -27,7 +27,7 @@ async function startServer() {
 
     // Default Route.
     app.get("/", (req, res) => {
-      res.send("🚀 Anvaya CRM Backend Running MMANAGEMNET"); 
+      res.send("🚀 Anvaya CRM Backend Running"); 
     });
 
     const PORT = process.env.PORT;
