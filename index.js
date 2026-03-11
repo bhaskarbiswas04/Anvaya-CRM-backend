@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import initializeDatabase from "./config/db.connect.js";
+import { seedLeads } from "./seed/seedLeads.js";
 
 import leadRoutes from "./routes/leadRoutes.js";
 import agentRoutes from "./routes/agentRoutes.js";
@@ -25,7 +26,7 @@ app.use(cors(corsOptions));
 async function startServer() {
   try {
     await initializeDatabase();
-    //   await seedInitialEvents();
+    // await seedLeads();
 
     // Default Route.
     app.get("/", (req, res) => {
