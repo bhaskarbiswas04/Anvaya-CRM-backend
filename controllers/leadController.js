@@ -167,6 +167,45 @@ export const getLeads = async (req, res) => {
   }
 };
 
+// --RouteLogic : GET Lead By ID
+export const getLeadById = async (req, res) => {
+  try {
+    const leadId = req.params.id;
+
+    if (!mongoose.Types.ObjectId.isValid(leadId)) {
+      return res.status(400).json({
+        error: "Invalid Lead ID.",
+      });
+    }
+
+    const lead = await Lead.findById(leadId).populate("salesAgent", "name");
+
+    if (!lead) {
+      return res.status(404).json({
+        error: `Lead with ID '${leadId}' not found.`,
+      });
+    }
+
+    res.status(200).json({
+      id: lead._id,
+      name: lead.name,
+      source: lead.source,
+      salesAgent: {
+        id: lead.salesAgent._id,
+        name: lead.salesAgent.name,
+      },
+      status: lead.status,
+      tags: lead.tags,
+      timeToClose: lead.timeToClose,
+      priority: lead.priority,
+      createdAt: lead.createdAt,
+      updatedAt: lead.updatedAt,
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 // --RouteLogic : Update a Lead Details
 export const updateLead = async (req, res) => {
   try {
