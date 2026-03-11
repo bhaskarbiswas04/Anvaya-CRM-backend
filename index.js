@@ -5,6 +5,8 @@ import initializeDatabase from "./config/db.connect.js";
 
 import leadRoutes from "./routes/leadRoutes.js";
 import agentRoutes from "./routes/agentRoutes.js";
+import commentRoutes from "./routes/commentRoutes.js"
+import reportRoutes from "./routes/reportRoutes.js"
 
 dotenv.config();
 
@@ -41,6 +43,8 @@ startServer();
 // routes
 app.use("/leads", leadRoutes);
 app.use("/agents", agentRoutes);
+app.use("/", commentRoutes);
+app.use("/reports", reportRoutes);
 
 app.get("/test", (req, res) => {
   res.json({
