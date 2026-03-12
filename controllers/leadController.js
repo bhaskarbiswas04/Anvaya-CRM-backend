@@ -230,7 +230,6 @@ export const updateLead = async (req, res) => {
 
     existingLead.name = name;
     existingLead.source = source;
-    existingLead.salesAgent = salesAgent;
     existingLead.status = status;
     existingLead.tags = tags;
     existingLead.timeToClose = timeToClose;
