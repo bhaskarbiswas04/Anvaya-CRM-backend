@@ -225,7 +225,7 @@ export const updateLead = async (req, res) => {
       });
     }
 
-    const { name, source, salesAgent, status, tags, timeToClose, priority } =
+    const { name, source, status, tags, timeToClose, priority } =
       req.body;
 
     existingLead.name = name;
