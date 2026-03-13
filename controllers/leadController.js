@@ -225,16 +225,27 @@ export const updateLead = async (req, res) => {
       });
     }
 
-    const { name, source, status, salesAgent, tags, timeToClose, priority } =
-      req.body;
+    // const { name, source, status, salesAgent, tags, timeToClose, priority } =
+    //   req.body;
 
-    existingLead.name = name;
-    existingLead.source = source;
-    existingLead.status = status;
-    existingLead.salesAgent = salesAgent;
-    existingLead.tags = tags;
-    existingLead.timeToClose = timeToClose;
-    existingLead.priority = priority;
+    // existingLead.name = name;
+    // existingLead.source = source;
+    // existingLead.status = status;
+    // existingLead.salesAgent = salesAgent;
+    // existingLead.tags = tags;
+    // existingLead.timeToClose = timeToClose;
+    // existingLead.priority = priority;
+
+    const { name, source, status, tags, timeToClose, priority } = req.body;
+
+    Object.assign(existingLead, {
+      name,
+      source,
+      status,
+      tags,
+      timeToClose,
+      priority,
+    });
 
     if (status === "Closed") {
       existingLead.closedAt = new Date();
