@@ -270,6 +270,7 @@ export const updateLead = async (req, res) => {
       tags: populatedLead.tags,
       timeToClose: populatedLead.timeToClose,
       priority: populatedLead.priority,
+      createdAt: populatedLead.createdAt,
       updatedAt: populatedLead.updatedAt,
     });
   } catch (error) {
