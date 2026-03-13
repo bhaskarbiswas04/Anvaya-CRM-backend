@@ -30,7 +30,7 @@ export const addComment = async (req, res)=>{
         }
 
         // Find : Author/Agent by name
-        const agent = SalesAgent.findById(author);
+        const agent = await SalesAgent.findById(author);
 
         if(!agent) {
             return res.status(404).json({
