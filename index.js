@@ -6,8 +6,9 @@ import { seedLeads } from "./seed/seedLeads.js";
 
 import leadRoutes from "./routes/leadRoutes.js";
 import agentRoutes from "./routes/agentRoutes.js";
-import commentRoutes from "./routes/commentRoutes.js"
-import reportRoutes from "./routes/reportRoutes.js"
+import commentRoutes from "./routes/commentRoutes.js";
+import reportRoutes from "./routes/reportRoutes.js";
+import tagRoutes from "./routes/tagRoutes.js";
 
 dotenv.config();
 
@@ -46,6 +47,7 @@ app.use("/leads", leadRoutes);
 app.use("/agents", agentRoutes);
 app.use("/", commentRoutes);
 app.use("/reports", reportRoutes);
+app.use("/tags", tagRoutes);
 
 app.get("/test", (req, res) => {
   res.json({
