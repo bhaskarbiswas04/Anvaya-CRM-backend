@@ -6,8 +6,8 @@ export const seedLeads = async () => {
 
     await Lead.insertMany(leadsData);
 
-    console.log("✅ 30 leads seeded successfully");
+    console.log("30 leads seeded successfully");
   } catch (error) {
-    console.error("❌ Seeding failed:", error);
+    console.error("Seeding failed:", error);
   }
 };
